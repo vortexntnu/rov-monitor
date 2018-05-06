@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>monitor-server</name>
+  <version>0.0.0</version>
+  <description>Monitoring software for ROV side</description>
+  <maintainer email="sindre.hansen@vortexntnu.no">Sindre Hansen</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslint</build_depend>
+  <build_depend>rospy</build_depend>
+  <exec_depend>rospy</exec_depend>
+</package>
