@@ -1,9 +1,16 @@
 #!/usr/bin/python
+import rospy
+
+from monitor_msgs.msg import DeviceStatus
 
 
-def main():
-    return 0
+class MonitorClientNode(object):
+    def __init__(self):
+        rospy.init_node("monitor_client_node")
+        self.pub_device_status = rospy.Publisher('device_status',
+                                                 DeviceStatus,
+                                                 queue_size=1)
 
 
 if __name__ == '__main__':
-    main()
+    monitor_client_node = MonitorClientNode()
