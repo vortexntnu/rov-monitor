@@ -8,7 +8,7 @@ from monitor_msgs.msg import DeviceStatus
 
 class MonitorClientNode(object):
     def __init__(self):
-        rospy.init_node("monitor_client_node")
+        rospy.init_node("monitor_client_node", anonymous=True)
         self.pub_device_status = rospy.Publisher('device_status',
                                                  DeviceStatus,
                                                  queue_size=1)
