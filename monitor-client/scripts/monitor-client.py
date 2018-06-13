@@ -47,5 +47,19 @@ class MonitorClientNode(object):
                 device_type = "Unknown"
             return device_type
 
+    def publish_status(self):
+        status_msg = DeviceStatus()
+        status_msg.device_id = self.get_id()
+        status_msg.device_type = self.get_type()
+        status_msg.ip = self.get_ip()
+        status_msg.leak = self.get_leak_status()
+        status_msg.cpu_temp = self.get_cpu_temp()
+        status_msg.header.stamp = rospy.get_rostime()
+        self.pub_device_status.publish(status_msg)
+
+
 if __name__ == '__main__':
     monitor_client_node = MonitorClientNode()
+    while not rospy.is_shutdown():
+        monitor_client_node.publish_status()
+        rospy.Rate(1).sleep()
